@@ -35,7 +35,7 @@ const Portfolio = () => {
 
     const projects = {
         vcmc: {
-            id: 'vcmr',
+            id: 'vcmc',
             title: 'Volume Center Motion Capture Research',
             category: 'Research',
             description: 'Rigless and blendshape-free facial motion capture research',
@@ -169,17 +169,31 @@ const Portfolio = () => {
 
                     <div className="reel-container">
                         <div className="reel-card" onClick={() => openVideo('https://www.youtube.com/embed/N3JYDp873P8')}>
-                            <div className="reel-placeholder">
-                                <Play size={48} style={{ color: '#a78bfa' }} />
+                            <div className="reel-thumbnail">
+                                <img
+                                    src="https://img.youtube.com/vi/N3JYDp873P8/sddefault.jpg"
+                                    alt="3D Art Reel"
+                                    className="reel-thumb-image"
+                                />
+                                <div className="play-overlay">
+                                    <Play size={64} style={{ color: '#fff' }} />
+                                </div>
                             </div>
                             <div className="reel-content">
                                 <h3>3D Art Reel</h3>
                                 <p>Character modeling, rigging, and animation</p>
                             </div>
                         </div>
-                        <div className="reel-card" onClick={() => openVideo('https://www.youtube.com/embed/NnJIQoGCqEA')}>
-                            <div className="reel-placeholder">
-                                <Play size={48} style={{ color: '#a78bfa' }} />
+                        <div className="reel-card" onClick={() => openVideo('https://www.youtube.com/embed/bbaSlfeIw4E')}>
+                            <div className="reel-thumbnail">
+                                <img
+                                    src="https://img.youtube.com/vi/bbaSlfeIw4E/sddefault.jpg"
+                                    alt="Technical Reel"
+                                    className="reel-thumb-image"
+                                />
+                                <div className="play-overlay">
+                                    <Play size={64} style={{ color: '#fff' }} />
+                                </div>
                             </div>
                             <div className="reel-content">
                                 <h3>Technical Reel</h3>
@@ -411,7 +425,10 @@ const Portfolio = () => {
         .reel-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
         .reel-card { background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-radius: 1rem; border: 1px solid rgba(139,92,246,0.3); overflow: hidden; transition: all 0.3s; cursor: pointer; }
         .reel-card:hover { transform: translateY(-8px); border-color: rgba(168,85,247,0.6); box-shadow: 0 20px 40px rgba(168,85,247,0.3); }
-        .reel-placeholder { aspect-ratio: 16/9; background: #000; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid rgba(139,92,246,0.3); }
+        .reel-card:hover .play-overlay { background: rgba(0,0,0,0.7); }
+        .reel-thumbnail { position: relative; aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid rgba(139,92,246,0.3); }
+        .reel-thumb-image { width: 100%; height: 100%; object-fit: cover; }
+        .play-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
         .reel-content { padding: 1.5rem; }
         .reel-content h3 { color: #a78bfa; margin-bottom: 0.5rem; }
         .reel-content p { color: #9ca3af; font-size: 0.875rem; }
@@ -517,13 +534,11 @@ const Portfolio = () => {
           .section.medium { padding: 4rem 0; }
           .project-detail-header h1 { font-size: 2rem; }
           .video-modal { padding: 1rem; }
-          .video-close { top: -2.5rem; width: 2.5rem; height: 2.5rem; font-size: 1.5rem; }
+          .video-close { top: -2.5rem; width: 2.5rem; height: 2.5rem; }
           .project-logo { height: 100px; }
           .logos-section { gap: 2rem; padding: 2rem 0; }
           .resource-buttons { flex-direction: column; align-items: stretch; }
           .resource-button { justify-content: center; }
-          .contact-links { flex-direction: column; align-items: stretch; }
-          .contact-link { justify-content: center; }
         }
       `}</style>
 
